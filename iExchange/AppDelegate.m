@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.collectionViewController = [[CollectionViewController alloc] initWithNibName:@"CollectionViewController" bundle:nil];
+    self.window.rootViewController = self.collectionViewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
