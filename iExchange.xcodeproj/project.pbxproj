@@ -16,6 +16,7 @@
 		50F0BA9B1B21CE8300B969DD /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F0BA991B21CE8300B969DD /* CollectionViewCell.m */; };
 		50F0BA9C1B21CE8300B969DD /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F0BA9A1B21CE8300B969DD /* CollectionViewCell.xib */; };
 		50F0BA9F1B21D35B00B969DD /* CurrencyExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F0BA9E1B21D35B00B969DD /* CurrencyExchange.m */; };
+		B66D078081FDF5D77F0D9ACF /* libPods-iExchange.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D333C549475DBF3BCC9D91 /* libPods-iExchange.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41D333C549475DBF3BCC9D91 /* libPods-iExchange.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iExchange.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A447131B20AC67001FC962 /* iExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A447171B20AC67001FC962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50A447181B20AC67001FC962 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		50F0BA9A1B21CE8300B969DD /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		50F0BA9D1B21D35B00B969DD /* CurrencyExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyExchange.h; sourceTree = "<group>"; };
 		50F0BA9E1B21D35B00B969DD /* CurrencyExchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyExchange.m; sourceTree = "<group>"; };
+		B8BABD316CA653724D60155C /* Pods-iExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iExchange.release.xcconfig"; path = "Pods/Target Support Files/Pods-iExchange/Pods-iExchange.release.xcconfig"; sourceTree = "<group>"; };
+		CCCDF7537B7B3845B515E089 /* Pods-iExchange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iExchange.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iExchange/Pods-iExchange.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66D078081FDF5D77F0D9ACF /* libPods-iExchange.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,8 @@
 				50A447151B20AC67001FC962 /* iExchange */,
 				50A4472F1B20AC67001FC962 /* iExchangeTests */,
 				50A447141B20AC67001FC962 /* Products */,
+				C26EAE913FA4F3A0C56E73B2 /* Pods */,
+				BA9F3ABB09CC4E0BB3292C6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +136,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BA9F3ABB09CC4E0BB3292C6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41D333C549475DBF3BCC9D91 /* libPods-iExchange.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C26EAE913FA4F3A0C56E73B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCCDF7537B7B3845B515E089 /* Pods-iExchange.debug.xcconfig */,
+				B8BABD316CA653724D60155C /* Pods-iExchange.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50A447361B20AC67001FC962 /* Build configuration list for PBXNativeTarget "iExchange" */;
 			buildPhases = (
+				3FDA151EF7AE9A59448822AD /* Check Pods Manifest.lock */,
 				50A4470F1B20AC67001FC962 /* Sources */,
 				50A447101B20AC67001FC962 /* Frameworks */,
 				50A447111B20AC67001FC962 /* Resources */,
+				3FB7E11C12092C5227289E04 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,6 +249,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FB7E11C12092C5227289E04 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iExchange/Pods-iExchange-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FDA151EF7AE9A59448822AD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50A4470F1B20AC67001FC962 /* Sources */ = {
@@ -338,6 +397,7 @@
 		};
 		50A447371B20AC67001FC962 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCCDF7537B7B3845B515E089 /* Pods-iExchange.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iExchange/Info.plist;
@@ -348,6 +408,7 @@
 		};
 		50A447381B20AC67001FC962 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8BABD316CA653724D60155C /* Pods-iExchange.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iExchange/Info.plist;

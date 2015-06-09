@@ -14,7 +14,6 @@
 @property (nonatomic, strong) NSString *currencyCode;
 @property (nonatomic, strong) NSString *currencySymbol;
 @property (nonatomic, strong) NSDecimalNumber *exchangeRate;
-
--(void)configureForCurrency;
+@property (nonatomic, strong) NSString *currencyName;
 
 @end

@@ -29,13 +29,18 @@
                         <outlet property="delegate" destination="-1" id="bc3-nR-X7r"/>
                     </connections>
                 </collectionView>
+                <activityIndicatorView opaque="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xn1-ZN-DTa">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ZOI-5y-bx3" secondAttribute="bottom" id="1KB-3q-BNw"/>
                 <constraint firstItem="ZOI-5y-bx3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DF5-Or-eRi"/>
+                <constraint firstAttribute="centerX" secondItem="xn1-ZN-DTa" secondAttribute="centerX" id="EPI-gL-ukQ"/>
                 <constraint firstAttribute="trailing" secondItem="ZOI-5y-bx3" secondAttribute="trailing" id="F8f-Xz-wUL"/>
                 <constraint firstItem="ZOI-5y-bx3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mk3-5F-RFp"/>
+                <constraint firstAttribute="centerY" secondItem="xn1-ZN-DTa" secondAttribute="centerY" id="Qfr-Y3-Bk3"/>
             </constraints>
         </view>
     </objects>

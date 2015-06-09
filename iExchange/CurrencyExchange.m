@@ -10,8 +10,4 @@
 
 @implementation CurrencyExchange
 
-- (void)configureForCurrency {
-    
-}
-
 @end

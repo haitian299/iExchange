@@ -30,20 +30,32 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STU-JB-Bm0">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="009-gO-nUW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="A9g-g9-OeV" secondAttribute="trailing" id="0K8-bW-gNN"/>
                 <constraint firstItem="A9g-g9-OeV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CB0-Ei-iyb"/>
+                <constraint firstItem="STU-JB-Bm0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="I4s-oX-v3u"/>
                 <constraint firstAttribute="bottom" secondItem="A9g-g9-OeV" secondAttribute="bottom" id="KTT-cE-Wly"/>
                 <constraint firstItem="6zx-o4-EUA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Lzj-ui-eqa"/>
+                <constraint firstItem="STU-JB-Bm0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MDG-b7-YI6"/>
                 <constraint firstAttribute="trailing" secondItem="6zx-o4-EUA" secondAttribute="trailing" id="OQp-WW-MIj"/>
                 <constraint firstItem="6zx-o4-EUA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RO7-4l-Cno"/>
+                <constraint firstAttribute="trailing" secondItem="STU-JB-Bm0" secondAttribute="trailing" id="egr-wF-Rds"/>
             </constraints>
             <size key="customSize" width="124" height="116"/>
             <connections>
-                <outlet property="currencyCodeLabel" destination="6zx-o4-EUA" id="vp5-vt-3Ib"/>
+                <outlet property="currencyNameLabel" destination="STU-JB-Bm0" id="sT3-vl-JiY"/>
                 <outlet property="label" destination="A9g-g9-OeV" id="5cN-sK-1Zb"/>
             </connections>
             <point key="canvasLocation" x="450" y="397"/>
