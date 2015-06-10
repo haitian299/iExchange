@@ -16,9 +16,9 @@
     
 }
 
-- (void)configureForCell:(CurrencyExchange *)currenyExchange {
+- (void)configureForCell:(CurrencyExchange *)currenyExchange cnyAmount:(NSDecimalNumber *)cnyAmount {
     self.currencyNameLabel.text = currenyExchange.currencyName;
-    self.label.text = [NSString stringWithFormat:@"%@", currenyExchange.exchangeRate];
+    NSDecimalNumber *currencyAmount = [currenyExchange.exchangeRate decimalNumberByMultiplyingBy:cnyAmount];
+    self.label.text = [NSString stringWithFormat:@"%@", currencyAmount];
 }
-
 @end

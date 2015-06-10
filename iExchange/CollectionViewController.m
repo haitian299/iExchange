@@ -21,11 +21,16 @@
     NSMutableArray *_currencyExchangeArray;
     BOOL _isLoading;
     NSOperationQueue *_queue;
+    NSDecimalNumber *_cnyAmount;
+    NSDecimalNumber *_multiplier;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.collectionView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    _multiplier = [[NSDecimalNumber alloc] initWithDouble:0.01];
     
     //registe collectionViewCell Nib
     UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCell" bundle:nil];
@@ -53,7 +58,8 @@
 }
 
 - (void)configureForLocaleIdentifiers {
-    _localeIdentifiers = [NSArray arrayWithObjects:@"es_US", @"fr_FR", @"en_HK", @"ja_JP", @"en_GB", @"en_AU", @"en_CA", @"th_TH", @"en_SG", @"nb_NO", @"ms_Latn_MY", @"en_MO", @"ko_KR", @"en_CH", @"da_DK", @"sv_SE", @"ru_RU", @"en_NZ", @"en_PH", @"zh_Hant_TW", nil];
+    _localeIdentifiers = [NSArray arrayWithObjects:@"zn_CH", @"es_US", @"fr_FR", @"en_HK", @"ja_JP", @"en_GB", @"en_AU", @"en_CA", @"th_TH", @"en_SG", @"nb_NO", @"ms_Latn_MY", @"en_MO", @"ko_KR", @"en_CH", @"da_DK", @"sv_SE", @"ru_RU", @"en_NZ", @"en_PH", @"zh_Hant_TW", nil];
+    _cnyAmount = [[NSDecimalNumber alloc] initWithInt:1000];
 }
 
 - (void)configureForCurrencyExchangeArray {
@@ -63,6 +69,15 @@
     
     _currencyExchangeArray = [NSMutableArray arrayWithCapacity:[_localeIdentifiers count]];
     
+    CurrencyExchange *cny = [[CurrencyExchange alloc] init];
+    cny.currencyName = @"人民币";
+    cny.currencyCode = @"CNY";
+    cny.localeCurrencyCode = cny.currencyCode;
+    NSLog(@"%@",cny.currencyCode);
+    cny.exchangeRate = [[NSDecimalNumber alloc] initWithDouble:1.0];
+    NSLog(@"%@",cny.exchangeRate);
+        
+    [_currencyExchangeArray addObject:cny];
     NSURL *url = [NSURL URLWithString:@"http://stock.finance.sina.com.cn/forex/api/openapi.php/ForexService.getAllBankForex" ];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -120,16 +135,18 @@
             NSLog(@"Fail to get currency name");
             continue;
         }
-        
-        currencyExchange.exchangeRate = currencyDict[@"xc_buy"];
-        if ([currencyExchange.exchangeRate isKindOfClass:[NSNull class]]) {
-            currencyExchange.exchangeRate = currencyDict[@"mid"];
-            if ([currencyExchange.exchangeRate isKindOfClass:[NSNull class]]) {
+        if ([currencyDict[@"xc_buy"] isKindOfClass:[NSString class]]) {
+            currencyExchange.exchangeRate = [[NSDecimalNumber alloc] initWithString:currencyDict[@"xc_buy"]];
+        } else {
+            if ([currencyDict[@"mid"] isKindOfClass:[NSString class]]) {
+                currencyExchange.exchangeRate = [[NSDecimalNumber alloc] initWithString:currencyDict[@"mid"]];
+            } else {
                 NSLog(@"Fail to get exchange rate");
                 continue;
             }
         }
         
+        currencyExchange.exchangeRate = [currencyExchange.exchangeRate decimalNumberByMultiplyingBy:_multiplier];
         NSLog(@"code after parse %@", currencyExchange.exchangeRate);
         if (currencyExchange != nil) {
             [_currencyExchangeArray addObject:currencyExchange];
@@ -142,7 +159,6 @@
 #pragma collectionView
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    //return [_localeIdentifiers count];
     NSLog(@"items: %lu",(unsigned long)[_currencyExchangeArray count]);
     return [_currencyExchangeArray count];
 }
@@ -158,7 +174,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell" forIndexPath:indexPath];
     CurrencyExchange *ce = [_currencyExchangeArray objectAtIndex:indexPath.row];
-    [cell configureForCell:ce];
+    [cell configureForCell:ce cnyAmount:_cnyAmount];
     return cell;
 }
 

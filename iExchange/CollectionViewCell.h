@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *currencyNameLabel;
 
 
-- (void)configureForCell:(CurrencyExchange *)currenyExchange;
+- (void)configureForCell:(CurrencyExchange *)currenyExchange cnyAmount:(NSDecimalNumber *)cnyAmount;
 
 @end
