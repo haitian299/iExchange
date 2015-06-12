@@ -13,6 +13,7 @@
 		50A447331B20AC67001FC962 /* iExchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A447321B20AC67001FC962 /* iExchangeTests.m */; };
 		50A4473F1B20AC9B001FC962 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A4473D1B20AC9B001FC962 /* CollectionViewController.m */; };
 		50A447401B20AC9B001FC962 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A4473E1B20AC9B001FC962 /* CollectionViewController.xib */; };
+		50E5DCB71B2B20EC0095B13B /* AmountLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E5DCB61B2B20EC0095B13B /* AmountLabel.m */; };
 		50F0BA9B1B21CE8300B969DD /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F0BA991B21CE8300B969DD /* CollectionViewCell.m */; };
 		50F0BA9C1B21CE8300B969DD /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F0BA9A1B21CE8300B969DD /* CollectionViewCell.xib */; };
 		50F0BA9F1B21D35B00B969DD /* CurrencyExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F0BA9E1B21D35B00B969DD /* CurrencyExchange.m */; };
@@ -43,6 +44,8 @@
 		50A4473C1B20AC9B001FC962 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		50A4473D1B20AC9B001FC962 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		50A4473E1B20AC9B001FC962 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		50E5DCB51B2B20EC0095B13B /* AmountLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmountLabel.h; sourceTree = "<group>"; };
+		50E5DCB61B2B20EC0095B13B /* AmountLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmountLabel.m; sourceTree = "<group>"; };
 		50F0BA981B21CE8300B969DD /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		50F0BA991B21CE8300B969DD /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		50F0BA9A1B21CE8300B969DD /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				50F0BA9A1B21CE8300B969DD /* CollectionViewCell.xib */,
 				50F0BA9D1B21D35B00B969DD /* CurrencyExchange.h */,
 				50F0BA9E1B21D35B00B969DD /* CurrencyExchange.m */,
+				50E5DCB51B2B20EC0095B13B /* AmountLabel.h */,
+				50E5DCB61B2B20EC0095B13B /* AmountLabel.m */,
 				50A447231B20AC67001FC962 /* Images.xcassets */,
 				50A447161B20AC67001FC962 /* Supporting Files */,
 			);
@@ -292,6 +297,7 @@
 				50A4471C1B20AC67001FC962 /* AppDelegate.m in Sources */,
 				50A447191B20AC67001FC962 /* main.m in Sources */,
 				50F0BA9B1B21CE8300B969DD /* CollectionViewCell.m in Sources */,
+				50E5DCB71B2B20EC0095B13B /* AmountLabel.m in Sources */,
 				50A4473F1B20AC9B001FC962 /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

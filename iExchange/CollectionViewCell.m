@@ -9,6 +9,7 @@
 #import "CollectionViewCell.h"
 #import "CurrencyExchange.h"
 
+
 @implementation CollectionViewCell
 
 - (void)awakeFromNib {
@@ -21,4 +22,8 @@
     NSDecimalNumber *currencyAmount = [currenyExchange.exchangeRate decimalNumberByMultiplyingBy:cnyAmount];
     self.label.text = [NSString stringWithFormat:@"%@", currencyAmount];
 }
+
+
+
+
 @end
