@@ -29,16 +29,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.collectionView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    _collectionView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     _multiplier = [[NSDecimalNumber alloc] initWithDouble:0.01];
     
     //registe collectionViewCell Nib
     UINib *cellNib = [UINib nibWithNibName:@"CollectionViewCell" bundle:nil];
-    [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"CollectionViewCell"];
+    [_collectionView registerNib:cellNib forCellWithReuseIdentifier:@"CollectionViewCell"];
     
     [self configureForLocaleIdentifiers];
     
     [self configureForCurrencyExchangeArray];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PassAmountNotification:) name:@"PassAmountNotification" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -160,6 +162,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSLog(@"items: %lu",(unsigned long)[_currencyExchangeArray count]);
+    NSLog(@"current thread in numberof: %@", [NSThread currentThread]);
     return [_currencyExchangeArray count];
 }
 
@@ -199,6 +202,23 @@
     
     [alertView show];
 }
+
+#pragma NotificationCenter for accepting amount
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)PassAmountNotification: (NSNotification*)notification {
+    NSLog(@"current thread in vc's notification: %@", [NSThread currentThread]);
+    NSDictionary *amountDic = [notification userInfo];
+    NSLog(@"amount in view controller: %@", [amountDic objectForKey:@"amount"]);
+    _cnyAmount = [[NSDecimalNumber alloc] initWithString:[amountDic objectForKey:@"amount"]];
+    NSLog(@"cny: %@", _cnyAmount);
+    [_collectionView reloadData];
+    NSLog(@"after reloaddata");
+}
+
 
 /*
 #pragma mark - Navigation

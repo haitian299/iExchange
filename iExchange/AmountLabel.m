@@ -7,6 +7,7 @@
 //
 
 #import "AmountLabel.h"
+#import "CollectionViewController.h"
 
 @implementation AmountLabel
 
@@ -33,19 +34,41 @@
 }
 
 - (void)insertText:(NSString *)text {
+    if ([self.text isEqualToString:@"0"]) {
+        self.text = @"";
+    }
     self.text = [self.text stringByAppendingString:text];
+    [self notificationMethod:self];
 }
 
 - (void)deleteBackward {
-    if (self.text.length == 0) {
+    if (self.text.length == 0 || [self.text isEqualToString:@"0"]) {
         return;
     }
     NSRange range = NSMakeRange(self.text.length - 1, 1);
     self.text = [self.text stringByReplacingCharactersInRange:range withString:@""];
+    if (self.text.length == 0) {
+        self.text = @"0";
+    }
+    [self notificationMethod:self];
 }
 
 - (UIKeyboardType)keyboardType {
-    return UIKeyboardTypeNumberPad;
+    return UIKeyboardTypeDecimalPad;
 }
+
+#pragma NotificationCenter for passing amount
+
+- (IBAction)notificationMethod:(id)sender {
+    if (self.text.length > 0) {
+        NSLog(@"success");
+        NSLog(@"current thread in notification1: %@", [NSThread currentThread]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PassAmountNotification" object:self userInfo:@{@"amount":self.text}];
+        NSLog(@"%@", self);
+        NSLog(@"current thread in notification2: %@", [NSThread currentThread]);
+        [self becomeFirstResponder];
+    }
+}
+
 
 @end

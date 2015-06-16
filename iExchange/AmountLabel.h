@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+//@protocol PassNewAmountDelegate
+//
+//- (void)passNewAmount: (NSString *)newAmount;
+//
+//@end
+
 @interface AmountLabel : UILabel <UIKeyInput>
 
 @end
